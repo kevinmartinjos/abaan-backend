@@ -3,5 +3,9 @@ import data from './data.json' assert {type: 'json'};
 
 export default function handler(req, res) {
 
-  res.status(200).json({'items': data});
+  let items_list = [];
+  for (let key in data){
+    items_list.push(data[key])
+  }
+  res.status(200).json({'items': items_list});
 }
